@@ -1,0 +1,12 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "first_name": "Mohammed",
+            "last_name": "Ali",
+            "email": "alimoh22062000@aol.com",
+            "phone_number": "09158853652",
+            "password": "12345678"
+        }
+    ]
+}
