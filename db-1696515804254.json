@@ -23,22 +23,6 @@
       "phone_number": 9012334432,
       "password": "gfds",
       "id": 3
-    },
-    {
-      "first_name": "Ahmada",
-      "last_name": "Rufai",
-      "email": "ahfai@gmail.com",
-      "phone_number": 9012334430,
-      "password": "frdsd",
-      "id": 4
-    },
-    {
-      "first_name": "Shadeas",
-      "last_name": "Belloas",
-      "email": "shadeb43ello@gmail.com",
-      "phone_number": 90123343432,
-      "password": "jbhvcxz",
-      "id": 5
     }
   ]
 }

@@ -1,10 +1,10 @@
 <template>
     <div>
         <div class="header">
-            <h1 style="border:20px double grey; padding:5px; border-radius: 50px">KLASSY RESTAURANT</h1>
+            <h1 style="border:20px double tomato; padding:5px; border-radius: 50px">KLASSY RESTAURANT</h1>
 
             <marquee scrollamount="12px">
-                <h3 style="color: grey; font-size:30px">A taste is gonna convince you...</h3>
+                <h3 style="color: indigo; font-size:30px">A taste is gonna convince you...</h3>
             </marquee>
         </div>
         <img class="logo" src="../assets/res.jpg" style="width:20%; height:20%; border-radius:50px" alt="">
@@ -46,7 +46,7 @@ export default {
     methods: {
         async signUp() {
             // 'fetch' can also be used instead of 'axios'.
-            // It is axios.post coz I'm making a post request(storing data somewhere)
+            // It is "axios.post" coz I'm making a post request(storing data somewhere)
             let result = await axios.post("http://localhost:3000/users", {
                 first_name: this.first_name,
                 last_name: this.last_name,
@@ -55,6 +55,22 @@ export default {
                 password: this.password
             })
             console.log(result)
+
+            // Checking for the response message. If it's successful, it's gonna return status 201. This has been tested using POSTMAN.
+            if (result.status == 201) {
+                alert("Signed up successfully.....well-done  :)")
+
+                // Converting the response to STRING before saving. The response was an object before.
+                // To get access to the data inside the result, it has to be "result.data". "result" alone is an object so we needs the data inside it.
+                let result_in_string = JSON.stringify(result.data)
+
+                // Saving the credentials inside local storage.
+                localStorage.setItem("user-info", result_in_string)
+                // "user-info" can be anything. It's like a variable to hold our data.
+                
+            } else {
+                alert("Something went wrong. Can't sign up User now")
+            }
         }
     }
 }
