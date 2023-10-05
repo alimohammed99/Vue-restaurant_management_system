@@ -1,12 +1,28 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "first_name": "Mohammed",
-            "last_name": "Ali",
-            "email": "alimoh22062000@aol.com",
-            "phone_number": "09158853652",
-            "password": "12345678"
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "first_name": "Mohammed",
+      "last_name": "Ali",
+      "email": "alimoh22062000@aol.com",
+      "phone_number": "09158853652",
+      "password": "12345678"
+    },
+    {
+      "first_name": "Abu",
+      "last_name": "Taosi",
+      "email": "abuja@gmail.com",
+      "phone_number": "09099887766",
+      "password": "Alabuhajy",
+      "id": 2
+    },
+    {
+      "first_name": "gfd",
+      "last_name": "gfds",
+      "email": "shadebello@gmail.com",
+      "phone_number": 9012334432,
+      "password": "gfds",
+      "id": 3
+    }
+  ]
 }
