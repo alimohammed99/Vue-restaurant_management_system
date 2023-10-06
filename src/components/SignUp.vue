@@ -67,7 +67,10 @@ export default {
                 // Saving the credentials inside local storage.
                 localStorage.setItem("user-info", result_in_string)
                 // "user-info" can be anything. It's like a variable to hold our data.
-                
+
+                 // Redirect to Home page after successful sign-up
+                this.$router.push({ name: 'HomeView' })
+
             } else {
                 alert("Something went wrong. Can't sign up User now")
             }
