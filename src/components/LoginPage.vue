@@ -52,6 +52,7 @@ export default {
             try {
                 // I wanna get the logged in User
                 // Getting the User whose email and password were just typed, using the "$this" keyword
+                // i.e searching the database, looking for a User that has this email&password that were just typed.
                 // I'm using axios for fetching instead of fetch()
                 let result = await axios.get(
                     // Ordinary quotation won't work. I have to use backticks. That's template literals.
@@ -59,11 +60,12 @@ export default {
                 );
 
                 // Check if the response status is 200 (OK) and if data is returned.........Response 200 means "Everything is okay"
+                // Also checking if there's some data.
                 if (result.status == 200 && result.data.length > 0) {
 
                     // If successful, store user information in local storage and redirect User to the Home page.
                     localStorage.setItem("user-info", JSON.stringify(result.data[0]))
-                    // It's result.data[0] coz the response from our API endpoint appears to be an array of user data objects, and I want to store the first user's data in local storage after a successful login.
+                    // I wrote 'result.data[0]' coz the response from our API endpoint appears to be an array of user data objects, and I want to store the first user's data in local storage after a successful login......it's like this local storage deals with the current User or current data at the moment
                     // SO I'm interested in only the first User that logs in and the first element of an array start from 0.
 
                     this.$router.push({ name: 'HomeView' })
