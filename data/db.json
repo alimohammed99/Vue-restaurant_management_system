@@ -157,6 +157,60 @@
       "contact": "567865409879",
       "address": "Bicycle Arena",
       "id": 6
+    },
+    {
+      "name": "Chevrolet",
+      "contact": "76543w",
+      "address": "Abu Dhabi",
+      "id": 7
+    },
+    {
+      "name": "pepperoni",
+      "contact": "987654",
+      "address": "Island",
+      "id": 8
+    },
+    {
+      "name": "Amasco",
+      "contact": "87654",
+      "address": "lagos",
+      "id": 9
+    },
+    {
+      "name": "Cornerstone",
+      "contact": "987654",
+      "address": "Corner",
+      "id": 10
+    },
+    {
+      "name": "ttttttttt",
+      "contact": "jhngbfv",
+      "address": "kjhgfd",
+      "id": 11
+    },
+    {
+      "name": "eeeeeeee",
+      "contact": "7654",
+      "address": "jhgfds",
+      "id": 12
+    },
+    {
+      "name": "ppppppp",
+      "contact": "765",
+      "address": "jhgfc",
+      "id": 13
+    },
+    {
+      "name": "zzzz",
+      "contact": "765",
+      "address": "hgfd",
+      "id": 14
+    },
+    {
+      "name": "bbbbbbb",
+      "contact": "45678",
+      "address": "rfgthjkl",
+      "id": 15
     }
   ]
 }

@@ -3,7 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import SignUp from '../components/SignUp.vue'
 import LoginPage from '../components/LoginPage.vue'
 import AddRestaurant from '../views/AddRestaurant.vue'
-import UpdateRestaurant from '../views/UpdateRestaurant.vue'
+import EditRestaurant from '../views/EditRestaurant.vue'
 
 const routes = [
     {
@@ -22,9 +22,9 @@ const routes = [
         component: LoginPage
     },
     {
-        path: '/update',
-        name: 'UpdateRestaurant',
-        component: UpdateRestaurant
+        path: '/edit/:xy',
+        name: 'EditRestaurant',
+        component: EditRestaurant
     },
     {
         path: '/add',

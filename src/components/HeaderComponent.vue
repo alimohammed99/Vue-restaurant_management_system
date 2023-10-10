@@ -20,9 +20,9 @@
             LOGIN
         </router-link>
 
-        <router-link class="right" to="/update">
+        <!-- <router-link class="right" to="/update">
             UPDATE RESTAURANT
-        </router-link>
+        </router-link> -->
 
         <router-link class="right" to="add">
             ADD RESTAURANT
