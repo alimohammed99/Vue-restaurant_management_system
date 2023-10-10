@@ -1,0 +1,124 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "first_name": "Mohammed",
+      "last_name": "Ali",
+      "email": "alimoh22062000@aol.com",
+      "phone_number": "09158853652",
+      "password": "12345678"
+    },
+    {
+      "first_name": "Abu",
+      "last_name": "Taosi",
+      "email": "abuja@gmail.com",
+      "phone_number": "09099887766",
+      "password": "Alabuhajy",
+      "id": 2
+    },
+    {
+      "first_name": "gfd",
+      "last_name": "gfds",
+      "email": "shadebello@gmail.com",
+      "phone_number": 9012334432,
+      "password": "gfds",
+      "id": 3
+    },
+    {
+      "first_name": "Ahmada",
+      "last_name": "Rufai",
+      "email": "ahfai@gmail.com",
+      "phone_number": 9012334430,
+      "password": "frdsd",
+      "id": 4
+    },
+    {
+      "first_name": "Shadeas",
+      "last_name": "Belloas",
+      "email": "shadeb43ello@gmail.com",
+      "phone_number": 90123343432,
+      "password": "jbhvcxz",
+      "id": 5
+    },
+    {
+      "first_name": "ojvb",
+      "last_name": "cvbnm",
+      "email": "shadebejhgllo@gmail.com",
+      "phone_number": 90123349432,
+      "password": "hjutfghjuh",
+      "id": 6
+    },
+    {
+      "first_name": "gvfcx",
+      "last_name": "Bellgfvcxo",
+      "email": "shadegfdxbello@gmail.com",
+      "phone_number": 90123344324,
+      "password": "bvcxfx",
+      "id": 7
+    },
+    {
+      "first_name": "ASA",
+      "last_name": "ds",
+      "email": "shadebello@gmail.com",
+      "phone_number": 9012334432,
+      "password": "gfdxz",
+      "id": 8
+    },
+    {
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "phone_number": "",
+      "password": "",
+      "id": 9
+    },
+    {
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "phone_number": "",
+      "password": "",
+      "id": 10
+    },
+    {
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "phone_number": "",
+      "password": "",
+      "id": 11
+    },
+    {
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "phone_number": "",
+      "password": "",
+      "id": 12
+    },
+    {
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "phone_number": "",
+      "password": "",
+      "id": 13
+    },
+    {
+      "first_name": "gfd",
+      "last_name": "",
+      "email": "",
+      "phone_number": "",
+      "password": "",
+      "id": 14
+    },
+    {
+      "first_name": "hgfd",
+      "last_name": "",
+      "email": "",
+      "phone_number": "",
+      "password": "",
+      "id": 15
+    }
+  ]
+}

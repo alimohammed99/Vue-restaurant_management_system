@@ -66,6 +66,7 @@ export default {
                     alert("Signed up successfully.....well-done  :)")
 
                     // Converting the response to STRING before saving. The response was an object before.
+                    // It's always better to save in JSON format.
                     // To get access to the data inside the result, it has to be "result.data". "result" alone is an object so we needs the data inside it.
                     let result_in_string = JSON.stringify(result.data)
 
