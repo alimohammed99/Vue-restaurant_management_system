@@ -120,5 +120,43 @@
       "password": "",
       "id": 15
     }
+  ],
+  "restaurants": [
+    {
+      "id": 1,
+      "name": "MatIce",
+      "contact": "123419",
+      "address": "Pilgrims Board"
+    },
+    {
+      "id": 2,
+      "name": "Kilimanjaro",
+      "contact": "43fd43",
+      "address": "Pilgrims Camp"
+    },
+    {
+      "id": 3,
+      "name": "Dominos",
+      "contact": "54fdd3",
+      "address": "Pilgrims Lodge"
+    },
+    {
+      "id": 4,
+      "name": "KFC",
+      "contact": "567809879",
+      "address": "Camp Nou"
+    },
+    {
+      "name": "Chicken Republic",
+      "contact": "567809879",
+      "address": "Camp Nou",
+      "id": 5
+    },
+    {
+      "name": "Item 7",
+      "contact": "567865409879",
+      "address": "Bicycle Arena",
+      "id": 6
+    }
   ]
 }

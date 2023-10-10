@@ -11,7 +11,14 @@
 
 
         <!-- This doesn't need any route. Once clicked, it's gonna perform the function assigned to it. -->
-        <a @click="handleLogout" class="right" href="javascript:;">LOGOUT</a>
+        <!-- Displaying the Logout link if somebody is already logged in -->
+        <a v-if="isLoggedIn" @click="handleLogout" class="right" href="javascript:;">LOGOUT</a>
+
+        
+        <!-- DIsplaying the Login link if the localStorage is empty, i.e, no User is currently logged in. -->
+        <router-link v-if="!isLoggedIn" class="right" to="/login">
+            LOGIN
+        </router-link>
 
         <router-link class="right" to="/update">
             UPDATE RESTAURANT
@@ -21,9 +28,9 @@
             ADD RESTAURANT
         </router-link>
 
-         <router-link class="right" to="/">
-                HOME
-            </router-link>
+        <router-link class="right" to="/">
+            HOME
+        </router-link>
 
     </div>
 </template>
@@ -37,9 +44,17 @@ export default {
    */
         handleLogout() {
             localStorage.clear(); // Clear user session data
-            this.$router.push({ name: 'LoginPage' }); // Redirect to the login page
+            this.$router.push({ name: 'HomeView' }); // Redirect to the login page
         }
 
+    },
+    computed: {
+        isLoggedIn() {
+            // Check if there is user data in localStorage
+            return localStorage.getItem('user-info') !== null;
+            // Above here, it means I returned that localStorage ISN'T EMPTY, i.e, there's a user data inside
+            // And I wanna display the Login link if localStorage IS EMPTY, therefore I have to negate this function with '!' in the router tag.
+        },
     }
 
 };
