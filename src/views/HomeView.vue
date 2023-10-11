@@ -11,6 +11,11 @@
         <h1 v-if="isLoggedIn">Hello {{ first_name }} {{ last_name }}, welcome...</h1>
     </div><br>
 
+     <div v-if="!restaurants.length">
+        <SpinnerComponent />
+        </div>
+
+        <div style="margin-top:16px"><h1 style="text-decoration:underline; color:indigo">Available Restaurants</h1></div>
 
     <div style="text-align:center; margin-top:16px">
         <table class="zigzag">
@@ -27,35 +32,8 @@
             <tbody>
                 <!-- Looping the Restaurants list -->
                 <tr class="ttt" v-for="item in restaurants" :key="item.id">
-                    <td>{{ item.id }}</td>
-                    <td>{{ item.name }}</td>
-                    <td>{{ item.contact }}</td>
-                    <td>{{ item.address }}</td>
-                    <td>
-                        <!-- Displaying the Edit button with svg, then as a router link -->
-                        <router-link
-                            style="text-decoration: none; background-color:rgb(124, 59, 170); color:white; padding:10px; border-radius: 15px"
-                            :to="'/edit/' + item.id">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-pen-fill" viewBox="0 0 16 16">
-                                <path
-                                    d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001z" />
-                            </svg>
-                        </router-link>
-                    </td>
-                    <!-- Delete button -->
-                    <td>
-                        <a @click="deleteRestaurant(item.id)" href="javascript:void(0)">
-                            <!-- "item" now stands for
-                                individual restaurant, from up there -->
-                            <svg style="text-decoration: none; background-color:rgb(211, 37, 37); color:white; padding:10px;
-                                border-radius: 15px; cursor: pointer" xmlns="http://www.w3.org/2000/svg" width="16"
-                                height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
-                                <path
-                                    d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z" />
-                            </svg>
-                        </a>
-                    </td>
+                    <TheBigTableData :mydata="item" @delete-restaurant="deleteRestaurant" />
+                    <!-- "delete-restaurant" is the custom event sent from TheBigTableData.vue -->
                 </tr>
             </tbody>
         </table>
@@ -64,6 +42,8 @@
 
 <script>
 import HeaderComponent from '../components/HeaderComponent.vue';
+import TheBigTableData from '../components/TheBigTableData.vue'; //This is the component that has our table
+import SpinnerComponent from '../components/SpinnerComponent.vue';
 import axios from 'axios';
 export default {
     name: 'HomeView',
@@ -76,7 +56,7 @@ export default {
             restaurants: []
         };
     },
-    components: { HeaderComponent },
+    components: { HeaderComponent, TheBigTableData, SpinnerComponent },
     computed: {
         isLoggedIn() {
             // Check if there is user data in localStorage
@@ -101,38 +81,38 @@ export default {
             this.first_name = userData.first_name;
             this.last_name = userData.last_name;
         }
-        // else {
-        // Check if there's no user information, redirect to SignUp page
-        // this.$router.push({ name: 'HomeView' });
-        // }
 
-        // Fetching the Restaurants from the json-server
-        let action = await axios.get("http://localhost:3000/restaurants");
+        // Add a 2-second delay using setTimeout
+        setTimeout(async () => {
+            // Fetching the Restaurants from the json-server
+            try {
+                let action = await axios.get("http://localhost:3000/restaurants");
 
-        // Assigning the result to our 'restaurant' array
-        this.restaurants = action.data
-        // It's action.data coz I need access to the data inside the result
+                // Filling the restaurants array with all our restaurants
+                this.restaurants = action.data;
+
+                // Handle errors
+            } catch (error) {
+                console.error('An error occurred while fetching restaurants:', error);
+                alert('Failed to fetch restaurants. Please try again later.');
+            }
+        }, 2000); // 2000 milliseconds (2 seconds)
+        // The above code fetches us our Restaurants after 2 secs delay
     },
     methods: {
-        // Display a confirmation dialog before deleting a restaurant
-        async confirmDeleteRestaurant(id) {
+        deleteRestaurant(id) {
             const confirmed = window.confirm('Are you sure you want to delete this restaurant?');
             if (confirmed) {
-                await this.deleteRestaurant(id);
-            }
-        },
-
-        // Handles restaurants deletion
-        async deleteRestaurant(id) {
-            try {
-                await axios.delete(`http://localhost:3000/restaurants/${id}`);
-                // After successful deletion, remove the restaurant from the local list
-                this.restaurants = this.restaurants.filter(list => list.id !== id);
-                // The above code removes the particular restaurant by removing the ID in the list of our restaurants ID
-                alert('Restaurant deleted successfully!');
-            } catch (error) {
-                console.error('An error occurred while deleting the restaurant:', error);
-                alert('Failed to delete the restaurant. Please try again later.');
+                axios.delete(`http://localhost:3000/restaurants/${id}`)
+                    .then(() => {
+                        // Remove the restaurant from the local list after successful deletion
+                        this.restaurants = this.restaurants.filter(list => list.id !== id);
+                        alert('Restaurant deleted successfully!');
+                    })
+                    .catch(error => {
+                        console.error('An error occurred while deleting the restaurant:', error);
+                        alert('Failed to delete the restaurant. Please try again later.');
+                    });
             }
         }
     }

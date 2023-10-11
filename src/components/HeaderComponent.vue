@@ -9,24 +9,36 @@
             </a>
         </router-link>
 
+        <!-- Displaying the Sign up link if no one is logged in -->
+        <router-link v-if="!isLoggedIn" class="right" to="/sign-up">
+            SIGN UP
+        </router-link>
+
 
         <!-- This doesn't need any route. Once clicked, it's gonna perform the function assigned to it. -->
         <!-- Displaying the Logout link if somebody is already logged in -->
-        <a v-if="isLoggedIn" @click="handleLogout" class="right" href="javascript:;">LOGOUT</a>
 
-        
+
+                <a v-if="isLoggedIn" @click="handleLogout" class="right" href="javascript:;">LOGOUT</a>
+
+
         <!-- DIsplaying the Login link if the localStorage is empty, i.e, no User is currently logged in. -->
         <router-link v-if="!isLoggedIn" class="right" to="/login">
             LOGIN
         </router-link>
 
-        <!-- <router-link class="right" to="/update">
-            UPDATE RESTAURANT
-        </router-link> -->
 
-        <router-link class="right" to="add">
+        <!-- Displaying the add-restaurant link conditionally -->
+
+        <!-- If User is logged in, and they click this, it's gonna allow them -->
+        <router-link class="right" to="add" v-if="isLoggedIn">
             ADD RESTAURANT
         </router-link>
+
+        <!-- If User is not logged in, and they click this, it's gonna execute a function that probably might not allow them unless they are logged in -->
+        <a class="right" @click="handleAddRestaurant" v-if="!isLoggedIn" style="cursor: pointer">
+            ADD RESTAURANT
+        </a>
 
         <router-link class="right" to="/">
             HOME
@@ -38,6 +50,7 @@
 <script>
 export default {
     name: 'HeaderComponent',
+
     methods: {
         /**
    * Handles user logout by clearing local storage and navigating to the login page.
@@ -45,7 +58,13 @@ export default {
         handleLogout() {
             localStorage.clear(); // Clear user session data
             this.$router.push({ name: 'HomeView' }); // Redirect to the login page
-        }
+        },
+
+        // ForUsers who wanna add restaurant without logging in
+        handleAddRestaurant() {
+            alert('Please log in to add a restaurant.');
+            this.$router.push({ name: 'LoginPage' }); // Redirect to the login page
+        },
 
     },
     computed: {
@@ -96,4 +115,5 @@ a.right.router-link-active {
     border-bottom: 3px dotted tomato;
     padding-bottom: 4px;
 }
+
 </style>

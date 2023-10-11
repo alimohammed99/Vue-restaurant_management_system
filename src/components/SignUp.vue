@@ -1,10 +1,12 @@
 <template>
+    <!-- Displaying our NavBars -->
+    <HeaderComponent />
     <div>
         <div class="header">
-            <h1 style="border:10px double tomato; padding:2px; border-radius: 50px">KLASSY RESTAURANT</h1>
+            <h1 style="border:10px double tomato; padding:2px; border-radius: 50px">BECOME A MEMBER TODAY</h1>
 
             <marquee scrollamount="12px">
-                <p style="color: indigo; font-size:30px">A taste is gonna convince you...</p>
+                <p style="color: indigo; font-size:30px">A trial is 💯 gonna convince you...</p>
             </marquee>
         </div>
         <img class="logo" src="../assets/ttt.jpg" style="width:25%; height:25%; border-radius:50px" alt="">
@@ -35,6 +37,7 @@
 <script>
 // Importing axios so I can use it
 import axios from 'axios'
+import HeaderComponent from './HeaderComponent.vue';
 export default {
     name: 'SignUp',
     data() {
@@ -46,6 +49,7 @@ export default {
             password: ''
         }
     },
+    components: { HeaderComponent },
     methods: {
         async signUp() {
             // 'fetch' can also be used instead of 'axios'.

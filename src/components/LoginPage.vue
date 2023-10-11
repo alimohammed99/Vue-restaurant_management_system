@@ -1,7 +1,10 @@
 
 <template>
+    <!-- Displaying our NavBars -->
+    <HeaderComponent />
+
     <div>
-        <h1 style="border:10px double tomato; padding:2px; border-radius: 50px">KLASSY RESTAURANT</h1> <br>
+        <h1 style="border:10px double tomato; padding:2px; border-radius: 50px; margin-top:20px">LOGIN</h1> <br>
         <img class="logo" src="../assets/res.jpg" style="width:30%; height:30%; border-radius:50px" alt="">
         <div class="container">
             <div class="wrapper">
@@ -39,6 +42,9 @@
 <script>
 // Importing axios so I can use it
 import axios from 'axios'
+
+import HeaderComponent from './HeaderComponent.vue';
+
 export default {
     name: 'LoginPage',
     data() {
@@ -47,6 +53,7 @@ export default {
             password: ''
         }
     },
+    components: { HeaderComponent },
     methods: {
         async handleLogin() {
             try {

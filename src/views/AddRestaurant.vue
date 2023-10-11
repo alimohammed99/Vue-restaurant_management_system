@@ -5,11 +5,11 @@
     <div>
         <h1>Add Restaurant</h1>
 
-        <form style="width: 100%" class="add">
+        <form @submit.prevent="addRestaurant" style="width: 100%" class="add">
             <input type="text" name="name" placeholder="Enter Name" v-model="Restaurant.name" required>
             <input type="text" name="contact" placeholder="Enter Contact Number" v-model="Restaurant.contact" required>
             <input type="text" name="address" placeholder="Enter Address" v-model="Restaurant.address" required>
-            <button @click="addRestaurant" type="submit">ADD</button>
+            <button type="submit">ADD</button>
         </form>
     </div>
 </template>
