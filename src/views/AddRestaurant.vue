@@ -1,5 +1,6 @@
 <template>
-     <!-- eslint-disable-next-line -->
+    <!-- To ignore some unnecessary warnings -->
+            <!-- eslint-disable-next-line -->
     <HeaderComponent />
     <div>
         <h1>Add Restaurant</h1>
@@ -14,7 +15,9 @@
 </template>
 
 <script>
+// To ignore some unnecessary warnings
 /* eslint-disable */
+
 import HeaderComponent from '../components/HeaderComponent.vue'
 import axios from 'axios';
 export default {
@@ -53,7 +56,7 @@ export default {
                     // Check if the bomb status indicates a successful addition (e.g., 201)
                     if (bomb.status == 201) {
                         // After successfully adding the restaurant, alert a message, clear the form and redirect to the home page:
-                        // alert('Restaurant added successfully!');
+                        alert('Restaurant added successfully!');
 
                         this.$router.push({ name: 'HomeView' });
 

@@ -123,10 +123,10 @@
   ],
   "restaurants": [
     {
-      "id": 1,
       "name": "MatIce",
-      "contact": "123419",
-      "address": "Pilgrims Board"
+      "contact": "12341912",
+      "address": "Pilgrims Board",
+      "id": 1
     },
     {
       "id": 2,
@@ -171,12 +171,6 @@
       "id": 8
     },
     {
-      "name": "Amasco",
-      "contact": "87654",
-      "address": "lagos",
-      "id": 9
-    },
-    {
       "name": "Cornerstone",
       "contact": "987654",
       "address": "Corner",
@@ -199,12 +193,6 @@
       "contact": "765",
       "address": "jhgfc",
       "id": 13
-    },
-    {
-      "name": "zzzz",
-      "contact": "765",
-      "address": "hgfd",
-      "id": 14
     },
     {
       "name": "bbbbbbb",

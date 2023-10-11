@@ -23,6 +23,7 @@ const routes = [
     },
     {
         path: '/edit/:xy',
+        // "xy" will stand for each restaurant ID
         name: 'EditRestaurant',
         component: EditRestaurant
     },
